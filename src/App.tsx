@@ -7,11 +7,12 @@ import dark from './styles/themes/dark';
 
 import { Header } from "./Components/Header";
 import { ThemeProvider } from 'styled-components';
-import { useState } from 'react';
+
+import usePersistedState from './utils/usePersistedState';
 
 function App() {
 
-  const [theme,setTheme] = useState(light)
+  const [theme,setTheme] = usePersistedState('theme', light)
 
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light);
